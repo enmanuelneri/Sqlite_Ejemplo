@@ -3,8 +3,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class enulBD extends SQLiteOpenHelper {
+public class EnulBD extends SQLiteOpenHelper {
 
+    /*Con las constantes(por el final) de abajo, le damos un nombre a nuestra BD y una Version*/
     private static final String NOMBRE_BD="enul.bd";
     private static final int VERSION_BD=1;
     /*Creamos una variable que nos permita crear nuestro script, para poder guardar una tabla*/
@@ -12,7 +13,8 @@ public class enulBD extends SQLiteOpenHelper {
 
     /*Creamos el constructor, pero luego lo modificamos agregandole el nombre y la version de nuestra BD*/
 
-    public enulBD(Context context) {
+    public EnulBD(Context context) {
+
         super(context, NOMBRE_BD, null, VERSION_BD);
     }
 
