@@ -36,7 +36,7 @@
             android:id="@+id/editCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/null"
+
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -44,26 +44,12 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Curso:" />
+            android:text="Descripcion:" />
 
         <EditText
-            android:id="@+id/editCurso"
+            android:id="@+id/editDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Carrera:" />
-
-        <EditText
-            android:id="@+id/editCarrera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:ems="10"
             android:inputType="textPersonName" />
 

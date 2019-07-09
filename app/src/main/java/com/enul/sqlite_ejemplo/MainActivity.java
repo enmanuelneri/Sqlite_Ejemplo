@@ -1,5 +1,6 @@
 package com.enul.sqlite_ejemplo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editCodigo,editCurso, editCarrera;
-    Button btnAgregar;
+    EditText editCodigo,editDescripcion;
+    Button btnAgregar,btnMostrar;
 
 
     @Override
@@ -19,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         /*Asociamos los objetos creados arriba, con los elementos de nuestro formulario*/
         editCodigo=(EditText)findViewById(R.id.editCodigo);
-        editCurso=(EditText)findViewById(R.id.editCurso);
-        editCarrera=(EditText)findViewById(R.id.editCarrera);
+        editDescripcion=(EditText)findViewById(R.id.editDescripcion);
+
 
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
-
+        btnMostrar=(Button)findViewById(R.id.btnMostrar);
         /*Creamos una instancia de la clase , para hacer uso de los metodos que conforman esta clase*/
         final EnulBD enulBD = new EnulBD(getApplicationContext());
 
@@ -32,15 +33,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /*Llamamos al metodo "agregarCursos" y a los objetos que se encargaran de traer los datos*/
-                enulBD.agregarCursos(editCodigo.getText().toString()
-                    ,editCurso.getText().toString()
-                    ,editCarrera.getText().toString()
+                enulBD.agregarCasa(editCodigo.getText().toString()
+                    ,editDescripcion.getText().toString()
                 );
                 /*Agregamos una notificacion Toast para verificar que los datos fueron agregados*/
                 Toast.makeText(getApplicationContext(),"Se agregó correctamente",Toast.LENGTH_LONG).show();
             }
         });
 
-
+        btnMostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Con la clase intent llamamos al activity_casa*/
+                Intent  mostrarCasa=new Intent(getApplicationContext(),CasaActivity.class);
+                startActivity(mostrarCasa);
+            }
+        });
     }
 }
