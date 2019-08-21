@@ -8,8 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+// 2)
 public class MainActivity extends AppCompatActivity {
 
+    /*Declaramos 3 editText para cada campo de nuestro formulario; y tambien los botones*/
     EditText editCodigo,editDescripcion;
     Button btnAgregar,btnMostrar;
 
@@ -18,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*Asociamos los objetos creados arriba, con los elementos de nuestro formulario*/
+        /*Asociamos los objetos creados arriba (los EditText y Button), con los elementos de nuestro formulario*/
         editCodigo=(EditText)findViewById(R.id.editCodigo);
         editDescripcion=(EditText)findViewById(R.id.editDescripcion);
 
 
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
         btnMostrar=(Button)findViewById(R.id.btnMostrar);
-        /*Creamos una instancia de la clase , para hacer uso de los metodos que conforman esta clase*/
+        /*Creamos una(unica, con final) instancia de la clase EnulBD, para hacer uso de los metodos CRUD que conforman esta clase*/
         final EnulBD enulBD = new EnulBD(getApplicationContext());
 
         /*Generamos el evento clic del boton agregar*/
@@ -50,4 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

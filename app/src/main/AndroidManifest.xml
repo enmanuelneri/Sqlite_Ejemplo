@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Declaramos el CasaActivity, esto se crea automaticamente, pero como lo hemos copiado es
+         necesario que lo declaremos manualmente-->
         <activity android:name=".CasaActivity">
 
         </activity>

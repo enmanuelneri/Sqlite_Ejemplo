@@ -22,7 +22,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Cursos"
+            android:text="Casas"
             android:textSize="26sp"
             android:textStyle="bold" />
 

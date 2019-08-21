@@ -7,7 +7,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/* 6) Esta clase nos permitirá llenar nuestra lista con la informacion que queramos.
+* Luego vamos al archivo AndroidManifest y declaramos esta clase que copiamos(CasaActivity)*/
 public class CasaActivity extends AppCompatActivity {
 
 

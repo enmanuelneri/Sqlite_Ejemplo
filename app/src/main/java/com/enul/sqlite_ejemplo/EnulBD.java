@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+// 1)
+/*Creamos la clase EnulBD, la cual hacemos que extienda de SQLiteOpenHelper, mediante esta clase
+ * podremos hacer las operaciones CRUD */
 public class EnulBD extends SQLiteOpenHelper {
 
     /*Con las constantes(por el final) de abajo, le damos un nombre a nuestra BD y una Version*/
@@ -15,7 +18,7 @@ public class EnulBD extends SQLiteOpenHelper {
     /*Creamos una variable que nos permita crear nuestro script, para poder guardar una tabla*/
     private static final String TABLA_CASA="CREATE TABLE CASA(CODIGO TEXT PRIMARY KEY, DESCRIPCION TEXT)";
 
-    /*Creamos el constructor, pero luego lo modificamos agregandole el nombre y la version de nuestra BD*/
+    /*Creamos el constructor y lo modificamos agregandole el nombre y la version de nuestra BD*/
 
     public EnulBD(Context context) {
 
@@ -40,7 +43,9 @@ public class EnulBD extends SQLiteOpenHelper {
 
     /*Creamos el metodo que será el encargado de agregar un registro en la tabla*/
     public void agregarCasa(String codigo,String descripcion){
-        SQLiteDatabase bd=getWritableDatabase();//Nos permite trabajar en modo lectura y escritura
+        /*Creamos un objeto de la clase SQLiteDatabse y luego llamamos al metodo getWritabledatabase
+        * el cual nos permitira trabajar en modo lectura y escritura*/
+        SQLiteDatabase bd=getWritableDatabase();
         /*Verificamos si se abrio correctamente la Base de Datos*/
         if(bd!=null){
             bd.execSQL("INSERT INTO CASA VALUES('"+codigo+"' ,'"+descripcion+"') ");
@@ -67,6 +72,7 @@ public class EnulBD extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
 
         }
+        /*Retornamos la lista con los registros encontrados*/
         return casas;
     }
 

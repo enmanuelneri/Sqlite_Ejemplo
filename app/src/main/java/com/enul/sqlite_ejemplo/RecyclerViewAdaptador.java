@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-//Importa el java.util.list para poder usar la lista y acceder a un elemento
+// 5) Importa el java.util.list para poder usar la lista y acceder a un elemento
 
 
 public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdaptador.ViewHolder> {
