@@ -32,13 +32,26 @@
             android:layout_height="wrap_content"
             android:text="Codigo:" />
 
-        <EditText
-            android:id="@+id/editCodigo"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            android:ems="10"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/editCodigo"
+                android:layout_width="228dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Buscar" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView3"

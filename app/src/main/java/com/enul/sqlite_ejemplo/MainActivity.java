@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*Declaramos 3 editText para cada campo de nuestro formulario; y tambien los botones*/
     EditText editCodigo,editDescripcion;
-    Button btnAgregar,btnMostrar;
+    Button btnAgregar,btnMostrar,btnBuscar;
 
 
     @Override
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
         btnMostrar=(Button)findViewById(R.id.btnMostrar);
+        btnBuscar=(Button)findViewById(R.id.btnBuscar);
         /*Creamos una(unica, con final) instancia de la clase EnulBD, para hacer uso de los metodos CRUD que conforman esta clase*/
         final EnulBD enulBD = new EnulBD(getApplicationContext());
 
@@ -51,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mostrarCasa);
             }
         });
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CasaModelo casa=new CasaModelo();
+                enulBD.buscarCursos(casa,editCodigo.getText().toString());
+                editDescripcion.setText(casa.getDescripcion());
+            }
+        });
+
     }
 
 

@@ -77,4 +77,23 @@ public class EnulBD extends SQLiteOpenHelper {
     }
 
 
+    /*Para buscar copiamos el codigo de mostrar y luego lo modificamos, le asignamos 2 parametros, el primero para almacenar el dato buscado y el 2do para buscar el curso*/
+    public void buscarCursos(CasaModelo casa, String codigo){
+        SQLiteDatabase bd=getReadableDatabase();//El metodo getReadableDatabase nos permite trabajar en modo de lectura
+        //Con la clase Cursor recuperamos los datos de un Query
+        Cursor cursor=bd.rawQuery("SELECT * FROM CASA WHERE CODIGO='"+codigo+"'  ",null);
+
+        //Verificamos si existe por lo menos 1 registro
+        if(cursor.moveToFirst()){
+            do{
+                /*Luego agregamos los valores encontrados a nuestra entidad CasaModelo*/
+                casa.setDescripcion(cursor.getString(1));
+
+            }while (cursor.moveToNext());
+
+        }
+
+    }
+
+
 }
