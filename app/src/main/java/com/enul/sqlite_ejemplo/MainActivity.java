@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*Declaramos 3 editText para cada campo de nuestro formulario; y tambien los botones*/
     EditText editCodigo,editDescripcion;
-    Button btnAgregar,btnMostrar,btnBuscar;
+    Button btnAgregar,btnMostrar,btnBuscar,btnEditar,btnEliminar;
 
 
     @Override
@@ -24,10 +24,13 @@ public class MainActivity extends AppCompatActivity {
         editCodigo=(EditText)findViewById(R.id.editCodigo);
         editDescripcion=(EditText)findViewById(R.id.editDescripcion);
 
-
+        /*Vinculamos los Button creados arriba con los del activity_main Layout*/
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
         btnMostrar=(Button)findViewById(R.id.btnMostrar);
         btnBuscar=(Button)findViewById(R.id.btnBuscar);
+        btnEditar=(Button)findViewById(R.id.btnEditar);
+        btnEliminar=(Button)findViewById(R.id.btnEliminar);
+
         /*Creamos una(unica, con final) instancia de la clase EnulBD, para hacer uso de los metodos CRUD que conforman esta clase*/
         final EnulBD enulBD = new EnulBD(getApplicationContext());
 
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*Cuando se haga clic en el boton buscar, llene los datos en la caja de texto*/
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +65,27 @@ public class MainActivity extends AppCompatActivity {
                 editDescripcion.setText(casa.getDescripcion());
             }
         });
+
+        /*Creamos el evento clic para nuestro boton Editar*/
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enulBD.editarCasa(editCodigo.getText().toString(),editDescripcion.getText().toString());
+                //Obtiene el contexto actual y hac que muestre ahi el siguiente mensaje
+                Toast.makeText(getApplicationContext(),"Se modificó correctamente",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*Creamos el evento clic para nuestro boton Eliminar*/
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enulBD.eliminarCasa(editCodigo.getText().toString());
+                // Mostramos una notificacion Toast para que nos diga que los datos fueron eliminados correctamente
+                Toast.makeText(getApplicationContext(),"Se eliminó correctamente",Toast.LENGTH_LONG).show();
+            }
+        });
+
 
     }
 

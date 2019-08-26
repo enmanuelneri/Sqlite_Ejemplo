@@ -95,5 +95,35 @@ public class EnulBD extends SQLiteOpenHelper {
 
     }
 
+    /*Creamos el metodo que será el encargado de editar un registro en la tabla*/
+    public void editarCasa(String codigo,String descripcion){
+        /*Creamos un objeto de la clase SQLiteDatabse y luego llamamos al metodo getWritabledatabase
+         * el cual nos permitira trabajar en modo lectura y escritura*/
+        SQLiteDatabase bd=getWritableDatabase();
+        /*Verificamos si se abrio correctamente la Base de Datos*/
+        if(bd!=null){
+            bd.execSQL(" UPDATE CASA SET= '"+descripcion+"' WHERE CODIGO= '"+codigo+"' " );
+            /*Cerramos la conexion con la BD*/
+            bd.close();
+        }
+
+    }
+
+    /*Creamos el metodo Eliminar, este a diferencia de los anteriores metodos, solo necesita 1
+    * parametro que es el de "codigo"*/
+    public void eliminarCasa(String codigo){
+        /*Creamos un objeto de la clase SQLiteDatabse y luego llamamos al metodo getWritabledatabase
+         * el cual nos permitira trabajar en modo lectura y escritura*/
+        SQLiteDatabase bd=getWritableDatabase();
+        /*Verificamos si se abrio correctamente la Base de Datos*/
+        if(bd!=null){
+            bd.execSQL(" DELETE FROM CASA  WHERE CODIGO= '"+codigo+"' " );
+            /*Cerramos la conexion con la BD*/
+            bd.close();
+        }
+
+    }
+
+
 
 }
